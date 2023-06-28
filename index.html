@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprint 2</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+</style>
+</head>
+<body class=" flex flex-col md:flex-row justify-center items-center h-screen w-screen bg-no-repeat bg-contain bg-[url(./interactive-card-form/imágenes/bg-main-mobile.png)] md:bg-[url(./interactive-card-form/imágenes/bg-main-desktop.png)]">
+      <div class="container_cards w-[270px]  top-[-130px] right-[18px] relative md:w-[30%] md:h-[50%] md:relative md:top-[55px] md:right-[210px]">
+        <div class="flex absolute top-[-90px] ">
+            <img class="flex z-30 absolute  mt-[10px] ml-[10px] md:mt-10 md:ml-10" src="./interactive-card-form/imágenes/card-logo.svg" alt="logomaster">
+            <img class="z-20" src="./interactive-card-form/imágenes/bg-card-front.png" alt="card-front">
+            <span id="num_tar" class="text-white text-[1rem] md:text-4xl z-30 fixed mt-[85px] ml-[10px] md:mt-[130px] md:mx-[30px]">9591 6489 6389 101E</span>
+            <span id="nom_tar" class="text-white text-sm md:text-2xl z-30 font-thin  fixed mt-[115px] ml-[10px] md:mt-[190px] md:mx-[20px]">Your Name</span>
+            <span id="exp_tar" class="text-white text-sm md:text-2xl z-30 font-thin fixed mt-[115px] ml-[190px] md:mt-[190px] md:ml-[350px]">01/23</span>
+        </div>
+        <div class=" flex relative bottom-[174px] left-[30px] md:left-20 md:top-[180px]">
+            <img src="./interactive-card-form/imágenes/bg-card-back.png" alt="card-back">
+            <span id="cvc_tar" class="text-white z-10 md:text-2xl font-thin relative right-[68px] top-[60px] md:top-[100px]  md:right-[95px]">000</span>
+        </div>
+      </div>
+      <form id="formulario" class="container-form  absolute mt-[220px] w-[90%] md:w-[30%] md:mt-0 md:static grid grid-cols-4 grid-rows-11 [&>input]:outline-violet-900 [&>input]:border [&>input]:h-10 [&>input]:w-[100%] [&>input]:justify-center [&>input]:items-center  [&>input]:border-violetbg-violet-900 [&>input]: [&>input]:rounded-l gap-1 border-black" >
+                <label class="col-span-4" for="cardholder-name">CARDHOLDER NAME:</label>
+                <input class="hover:border-violet-900 col-span-4" type="text" id="nom_tar_imp" name="cardholder-name" required>
+                <span id="error_nombre" class="text-[16px] text-red-700 col-span-4 hidden">Solo letras</span>
+                <label class="col-span-4" for="card-number">CARD NUMBER:</label>
+                <input class="hover:border-violet-900 col-span-4" type="text" id="num_tar_imp" name="card-number" required minlength="16" maxlength="16" pattern="[0-9]{16}">
+                <span id="error_card" class="text-[16px] text-red-700 col-span-4 hidden"></span>
+                <label class="col-span-1" for="expiration-date">EXP DATE </label>
+                <span class="col-span-1">(MM/YY):</span>
+                <label class="col-span-2" for="cvc">CVC:</label>
+
+                    <input class="hover:border-violet-900 col-span-1" type="text w-[20%]" id="exp_m_imp" name="expiration-month" required minlength="2" maxlength="2" pattern="[0-9]{2}">
+                    <input class="hover:border-violet-900 col-span-1" type="text" id="exp_y_imp" name="expiration-year" required minlength="2" maxlength="2" pattern="[0-9]{2}">
+                    <input class="hover:border-violet-900 col-span-2" type="text"  id="cvc_imp" name="cvc" required placeholder="000"
+                    minlength="3"
+                    maxlength="3"
+                    pattern="[0-9]{3}">
+                    <span id="error_fecha" class="text-[16px] text-red-700 col-span-2 hidden" >requerido</span>
+                    <span id="error_cvc" class="text-[16px] text-red-700 col-span-2 hidden" >requerido</span>
+                    <button id="botoncomplete" class="h-15% w-30% col-span-4 text-white bg-violet-900 rounded-l" type="submit" maxlength="" value="Confirm">Confirm</button>
+                </form>
+                <form id="complete" class="  container-form hidden absolute grid grid-cols-2 grid-rows-1 justify-items-center top-[350px] h-[260px] w-[500px] md:h-[300px] md:w-[30%]  [&>span]:h-[70px] [&>input]  bg-white md:top-[300px] md:static  md:right-[288px]  " >
+                  <img class="col-span-2" src="./interactive-card-form/imágenes/icon-complete.svg" alt="icon complete">
+                  <span class="col-span-2 text-[2rem]">THANK YOU</span>
+                  <span class="col-span-2 text-[1.3rem]">we've added your card details</span>
+                  <button id="botonback" class=" col-span-2 h-[40px] w-[336px] text-white bg-violet-900 rounded-l" type="submit" maxlength="" value="Confirm">Continue</button>
+                </form> 
+      <script src="./app.js"></script>
+</body>
+</html>
